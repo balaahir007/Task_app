@@ -1,6 +1,6 @@
 ## Screenshots
 
-![Preview](./assets/preview.png)
+![Preview](./frontend/assets/preview.png)
 # Agent Management API
 
 This project provides a RESTful API to manage agents and their assigned tasks in an admin panel. It includes features to create, read, update, and delete agents and tasks. Each agent is created by an admin, and each task is assigned to a specific agent.
