@@ -2,8 +2,6 @@ import {
   createAgent,
   deleteAgentById,
   getAllAgents,
-  getAgentById,
-  updateAgentById
 } from '../models/agentModels.js';
 
 // Create Agent
@@ -25,17 +23,6 @@ export const createAgentController = async (req, res) => {
   }
 };
 
-// Delete Agent
-export const deleteAgentController = async (req, res) => {
-  try {
-    const { id } = req.params;
-    await deleteAgentById(id);
-    return res.status(200).json({ message: 'Agent deleted successfully' });
-  } catch (error) {
-    console.error("Delete Agent Error:", error.message);
-    return res.status(400).json({ message: error.message || 'Agent deletion failed' });
-  }
-};
 
 // Get All Agents
 export const getAllAgentsController = async (req, res) => {
@@ -48,27 +35,3 @@ export const getAllAgentsController = async (req, res) => {
   }
 };
 
-// Get Agent by ID
-export const getAgentByIdController = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const agent = await getAgentById(id);
-    return res.status(200).json(agent);
-  } catch (error) {
-    console.error("Get Agent Error:", error.message);
-    return res.status(404).json({ message: error.message || 'Agent not found' });
-  }
-};
-
-// Update Agent
-export const updateAgentController = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const updatedData = req.body;
-    const updatedAgent = await updateAgentById(id, updatedData);
-    return res.status(200).json(updatedAgent);
-  } catch (error) {
-    console.error("Update Agent Error:", error.message);
-    return res.status(400).json({ message: error.message || 'Agent update failed' });
-  }
-};
