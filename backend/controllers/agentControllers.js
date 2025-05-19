@@ -1,6 +1,5 @@
 import {
   createAgent,
-  deleteAgentById,
   getAllAgents,
 } from '../models/agentModels.js';
 
